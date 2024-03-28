@@ -4,7 +4,7 @@ input = sys.stdin.readline
 a = input().strip()
 n = a
 cnt = 0
-while cnt <70 :
+while True:
     word = []
     new_word=[]
     for i in a:
