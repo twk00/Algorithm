@@ -17,7 +17,6 @@ for _ in range(b):
     graph[i].append(j)
     graph[j].append(i)
 
-
 def dfs():
     for i in graph:
         i.sort(reverse=True)
@@ -47,6 +46,5 @@ def bfs():
 
 
 dfs()
-deq.clear()
 deq.append(c)
 bfs()
