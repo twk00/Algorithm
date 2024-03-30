@@ -13,7 +13,7 @@ for _ in range(n-1):
     graph[j].append(i)
 
 while deq:
-    popnum = deq.pop()
+    popnum = deq.popleft()
     visited[popnum] = 1
     for i in graph[popnum]:
         if visited[i] == 0:
