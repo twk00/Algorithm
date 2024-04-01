@@ -1,5 +1,4 @@
 import sys
-from collections import deque
 import heapq
 
 input = sys.stdin.readline
@@ -18,15 +17,17 @@ visit[start_node] = 1
 deq = [(cost, b) for b, cost in graph[start_node]]
 heapq.heapify(deq)
 total = []
-
+max_num = 0
+max_w = 0
 while deq:
     cost, node = heapq.heappop(deq)
     if visit[node - 1] == 0:
         total.append(cost)
+        max_num += cost
+        max_w=max(max_w,cost)
         visit[node - 1] = 1
         for b, c in graph[node - 1]:
             if visit[b - 1] == 0:
                 heapq.heappush(deq, (c, b))
-sorted_costs = sorted(total)
 
-print(sum(sorted_costs[:-1]))
+print(max_num-max_w)
