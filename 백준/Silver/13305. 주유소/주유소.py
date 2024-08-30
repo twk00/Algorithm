@@ -2,14 +2,18 @@ import sys
 
 input = sys.stdin.readline
 
-city = int(input())
+n = int(input().strip())
 
-street = list(map(int, input().split()))
-oil = list(map(int, input().split()))
+distances = list(map(int, input().strip().split()))
 
-price = street[0] * oil[0]
+prices = list(map(int, input().strip().split()))
 
-# for i in range(1, len(street)):
-#     print(street[i],oil[i])
+min_cost = 0
+min_price = prices[0]
 
-print(price + min(oil[1:-1]) * sum(street[1:]))
+for i in range(n - 1):
+    if prices[i] < min_price:
+        min_price = prices[i]
+    min_cost += min_price * distances[i]
+
+print(min_cost)
