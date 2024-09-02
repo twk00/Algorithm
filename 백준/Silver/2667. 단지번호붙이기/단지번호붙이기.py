@@ -2,16 +2,17 @@ import sys
 
 sys.setrecursionlimit(10**6)
 input = sys.stdin.readline
-house = []
+
 num = int(input())
-cntarr = []
+house = []
+answer = []
+cnt = 0
+total = 0
+
 for _ in range(num):
     house.append(list(map(int, input().rstrip())))
 
-cnt = 0
-
-
-def dfs(x, y):
+def dfs (x,y):
     global cnt
     if x <= -1 or x >= num or y <= -1 or y >= num:
         return False
@@ -25,15 +26,14 @@ def dfs(x, y):
         return True
     return False
 
-
-result = 0
 for i in range(num):
     for j in range(num):
-        if dfs(i, j) == True:
-            cntarr.append(cnt)
+        if dfs(i,j) == True:
+            answer.append(cnt)
             cnt = 0
-            result += 1
-print(result)
-cntarr.sort()
-for i in cntarr:
+            total += 1
+
+answer.sort()
+print(total)
+for i in answer:
     print(i)
